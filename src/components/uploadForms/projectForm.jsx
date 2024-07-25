@@ -10,6 +10,13 @@ const ProjectForm = ({ setShow }) => {
   const [description, setDescription] = useState("");
   const [studentId, setStudentId] = useState("");
   const [technologies, setTechnologies] = useState("");
+  const [teamMember1, setteamMember1] = useState("");
+  const [teamMember2, setteamMember2] = useState("");
+  const [teamMember3, setteamMember3] = useState("");
+  const [teamMember4, setteamMember4] = useState("");
+  const [teamMember5, setteamMember5] = useState("");
+  const [teamMember6, setteamMember6] = useState("");
+  const [teamMember7, setteamMember7] = useState("");
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +28,14 @@ const ProjectForm = ({ setShow }) => {
         field,
         description,
         studentId,
-        technologies
+        technologies,
+        teamMember1,
+        teamMember2,
+        teamMember3,
+        teamMember4,
+        teamMember5,
+        teamMember6,
+        teamMember7, 
       );
 
       setShow(false);
@@ -87,8 +101,69 @@ const ProjectForm = ({ setShow }) => {
               required
             />
           </div>
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Team Member 1"
+              value={teamMember1}
+              onChange={(e) => setteamMember1(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Team Member 2"
+              value={teamMember2}
+              onChange={(e) => setteamMember2(e.target.value)}
+              required
+            />
+          </div>
 
           <div className="row">
+            <input
+              type="text"
+              placeholder="Team Member 3"
+              value={teamMember3}
+              onChange={(e) => setteamMember3(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Team Member 4"
+              value={teamMember4}
+              onChange={(e) => setteamMember4(e.target.value)}
+              required
+            />
+          </div>
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Team Member 5"
+              value={teamMember5}
+              onChange={(e) => setteamMember5(e.target.value)}
+              
+            />
+            <input
+              type="text"
+              placeholder="Team Member 6"
+              value={teamMember6}
+              onChange={(e) => setteamMember6(e.target.value)}
+              
+            />
+          </div>
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Team Member 7"
+              value={teamMember7}
+              onChange={(e) => setteamMember7(e.target.value)}
+              
+            />
+          
+          </div>
+       
+        
+
+          <div className="row" >
             <button type="submit">Create Project</button>
           </div>
         </form>

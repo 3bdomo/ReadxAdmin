@@ -66,7 +66,7 @@ class Upload {
     });
   }
 
-  uploadProject = (name, output, field, description, student_id, technologies) => {
+  uploadProject = (name, output, field, description, student_id, technologies,teamMember1,teamMember2,teamMember3,teamMember4,teamMember5,teamMember6,teamMember7) => {
     if(description.length < 100) {
       alert("Description is too short. Please enter a description with more than 100 characters.");
       return false;
@@ -77,7 +77,14 @@ class Upload {
       field,
       description,
       student_id,
-      technologies
+      technologies,
+      teamMember1,
+      teamMember2,
+      teamMember3,
+      teamMember4,
+      teamMember5,
+      teamMember6,
+      teamMember7
     });
   }
 }
