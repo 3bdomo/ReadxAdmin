@@ -29,7 +29,7 @@ const Checkplagiarism = () => {
       } catch (error) {
         console.error("Error fetching plagiarism data:", error);
       } finally {
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       }
     };
 
@@ -49,28 +49,32 @@ const Checkplagiarism = () => {
     <div className='new'>
       <div className='line'>
         <h1 className='cRed'>{name} Matching With:</h1>
-        {
-          loading ? 
-            <div className="btnsMange"></div> :
-            <div className='btnsMange'>
-              <button className='reject' onClick={() => handleAcceptedRejected(false, id)}>
-                Reject
-              </button>
-              <button className='accept' onClick={() => handleAcceptedRejected(true, id)}>
-                Accept
-              </button>
-            </div>
-        }
-      </div>
-      {
-        loading ? <div className="span"></div> : matching && (
-          <div className='matchingdes'>
-            <h1>{matching[0]}</h1>
-            <h5>{matching[1]?.match || ""}</h5>
-            <h1>{matching[1]?.score ? "Score: " + matching[1].score : ""}</h1>
+        {loading ? (
+          <div className="btnsMange"></div>
+        ) : (
+          <div className='btnsMange'>
+            <button className='reject' onClick={() => handleAcceptedRejected(false, id)}>
+              Reject
+            </button>
+            <button className='accept' onClick={() => handleAcceptedRejected(true, id)}>
+              Accept
+            </button>
           </div>
-        )
-      }
+        )}
+      </div>
+      {loading ? (
+        <div className="span"></div>
+      ) : matching ? (
+        <div className='matchingdes'>
+          <h1>{matching[0]}</h1>
+          <h5>{matching[1]?.match || ""}</h5>
+          <h1>{matching[1]?.score ? "Score: " + matching[1].score : ""}</h1>
+        </div>
+      ) : (
+        <div className='matchingdes'>
+          <h1>No matches found</h1>
+        </div>
+      )}
     </div>
   );
 };
