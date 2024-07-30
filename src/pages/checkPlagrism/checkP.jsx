@@ -21,7 +21,7 @@ const Checkplagiarism = () => {
       try {
         const response = await checkPalgarism(description);
         if (response.status === 200) {
-          const data = JSON.parse(response.data);
+          const data = response.data; // Assume data is already in the correct format
           setMatching(data);
         } else {
           console.error("Error fetching plagiarism data:", response.msg);
@@ -50,7 +50,9 @@ const Checkplagiarism = () => {
       <div className='line'>
         <h1 className='cRed'>{name} Matching With:</h1>
         {loading ? (
-          <div className="btnsMange"></div>
+          <div className="btnsMange">
+            <div className="loading-circle"></div>
+          </div>
         ) : (
           <div className='btnsMange'>
             <button className='reject' onClick={() => handleAcceptedRejected(false, id)}>
@@ -67,7 +69,7 @@ const Checkplagiarism = () => {
       ) : matching ? (
         <div className='matchingdes'>
           <h1>{matching[0]}</h1>
-          <h5>{matching[1]?.match || ""}</h5>
+          <h5>{matching[1]?.match || "No match found"}</h5>
           <h1>{matching[1]?.score ? "Score: " + matching[1].score : ""}</h1>
         </div>
       ) : (
