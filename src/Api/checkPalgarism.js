@@ -8,7 +8,7 @@ const checkPalgarism = async (description) => {
     }
     const { token } = JSON.parse(tokenData);
 
-    // API endpoint
+    // API Endpoint
     //const url = 'http://127.0.0.1:7000/similarity';
     const url = 'http://127.0.0.1:8000/api/admin/check_plagiarism';
     const formData = new FormData();
